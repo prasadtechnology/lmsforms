@@ -23,6 +23,26 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bbstyle {
+  background: "#222";
+}
+
+.canvasstyle {
+  background: "light-yellow";
+}
+
+.moodlestyle {
+  background: "green";
+}
+
+thead {
+  background-color: slategray;
 }

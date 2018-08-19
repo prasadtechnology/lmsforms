@@ -16,6 +16,8 @@ import {
   deleteCredential,
   fetchCredential
 } from "../actions/LmsCredentialsAction";
+import FloatingButton from "./FloatingButton";
+import { LMS_BB, LMS_CANVAS, LMS_MOODLE } from "../types/types";
 
 class CredTableComponent extends Component {
   componentWillMount() {
@@ -43,10 +45,9 @@ class CredTableComponent extends Component {
   }
 
   render() {
-    var items = this.props.items;
-    console.log(" props are : " + items);
     return (
       <Paper>
+        <FloatingButton />
         <Table>
           <TableHead>
             <TableRow>
@@ -66,7 +67,7 @@ class CredTableComponent extends Component {
           <TableBody>
             {this.props.items.map((row, index) => {
               return (
-                <TableRow key={index}>
+                <TableRow key={index} style={getLmsStyle(row.lms_type)}>
                   <TableCell>{row.contact_school}</TableCell>
                   <TableCell>{row.consumer_key}</TableCell>
                   <TableCell>{row.shared_secret}</TableCell>
@@ -96,6 +97,17 @@ class CredTableComponent extends Component {
         </Table>
       </Paper>
     );
+  }
+}
+
+function getLmsStyle(lmsType) {
+  switch (lmsType) {
+    case LMS_BB:
+      return { background: "#E8EBEB" };
+    case LMS_CANVAS:
+      return { background: "#DCCED5" };
+    case LMS_MOODLE:
+      return { background: "#CFE1E3" };
   }
 }
 

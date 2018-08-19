@@ -17,6 +17,7 @@ import {
   fetchCredential
 } from "../actions/LmsCredentialsAction";
 import FloatingButton from "./FloatingButton";
+import CredFormComponent from "./CredFormComponent";
 import { LMS_BB, LMS_CANVAS, LMS_MOODLE } from "../types/types";
 
 class CredTableComponent extends Component {
@@ -47,7 +48,7 @@ class CredTableComponent extends Component {
   render() {
     return (
       <Paper>
-        <FloatingButton />
+        <CredFormComponent />
         <Table>
           <TableHead>
             <TableRow>

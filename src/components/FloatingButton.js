@@ -22,6 +22,7 @@ function FloatingButton(props) {
         color="secondary"
         aria-label="Add"
         className={classes.button}
+        onClick={props.handleButtonClick}
       >
         <AddIcon />
       </Button>

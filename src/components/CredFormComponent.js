@@ -24,7 +24,7 @@ class CredFormComponent extends React.Component {
   state = {
     open: false,
     error: false,
-    _lmsType: ""
+    _lmsType: LMS_BB
   };
 
   handleChange = event => {
@@ -72,49 +72,53 @@ class CredFormComponent extends React.Component {
             <TextField
               autoFocus
               required
-              margin="normal"
+              margin="dense"
               id="_consumerKey"
               label="CONSUMER KEY"
               type="text"
-              error={true}
               onChange={e =>
                 this.setState({ consumerKey: e.target.value, error: true })
               }
+              fullWidth
             />
             <TextField
               required
-              margin="normal"
+              margin="dense"
               id="_sharedSecret"
               label="SHARED SECRET"
               type="text"
+              fullWidth
             />
             <TextField
               margin="dense"
               id="_school"
               label="COLLEGE"
               type="text"
+              fullWidth
             />
             <TextField
               margin="dense"
               id="contact_email"
               label="CONTACT EMAIL"
               type="text"
+              fullWidth
             />
 
             <FormControl>
-              <InputLabel htmlFor="_lmsType">LMS TYPE</InputLabel>
+              <InputLabel htmlFor="_lmsType" fullWidth>
+                LMS TYPE
+              </InputLabel>
               <Select
                 value={this.state._lmsType}
                 onChange={this.handleChange}
+                margin="dense"
                 inputProps={{
                   name: "_lmsType",
                   id: "_lmsType"
                 }}
+                fullWidth
               >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={LMS_BB}>BB</MenuItem>
+                <MenuItem value={LMS_BB}>Blackboard</MenuItem>
                 <MenuItem value={LMS_CANVAS}>Canvas</MenuItem>
                 <MenuItem value={LMS_MOODLE}>Moodle</MenuItem>
               </Select>
@@ -142,24 +146,30 @@ function getLmsDynamicFields(_lmsType) {
       return (
         <div>
           <TextField
+            required
             margin="dense"
             id="_blackboardPath"
             label="BB PATH"
             type="text"
+            fullWidth
           />
 
           <TextField
+            required
             margin="dense"
             id="bbAppKey"
             label="BB APP KEY"
             type="text"
+            fullWidth
           />
 
           <TextField
+            required
             margin="dense"
             id="bbAppSecretkey"
             label="BB SECRET KEY"
             type="text"
+            fullWidth
           />
         </div>
       );
@@ -167,13 +177,16 @@ function getLmsDynamicFields(_lmsType) {
       return (
         <div>
           <TextField
+            required
             margin="dense"
             id="_canvasPath"
             label="CANVAS PATH"
             type="text"
+            fullWidth
           />
 
           <TextField
+            required
             margin="dense"
             id="_canvasAccessToken"
             label="CANVAS TOKEN"
